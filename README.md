@@ -32,7 +32,7 @@ This will create a view and an underlying function.
 The library also needs to be loaded in `shared_preload_libraries`, by
 setting the parameter in `postgresql.conf`:
 
-    shared_preload_libraries = 'pg_sslinfo'
+    shared_preload_libraries = 'pg_sslstatus'
 
 
 Using
