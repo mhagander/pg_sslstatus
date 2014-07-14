@@ -191,6 +191,10 @@ pg_get_sslstatus(PG_FUNCTION_ARGS)
 	FuncCallContext *funcctx;
 	FctxStruct *ctxinfo;
 
+	if (!sslstatus)
+		ereport(ERROR,
+				(errmsg("sslstatus is not initialized"),
+				 (errhint("did you perhaps forget to add pg_sslstatus to shared_preload_libraries?"))));
 	if (SRF_IS_FIRSTCALL())
 	{
 		MemoryContext oldcontext;
