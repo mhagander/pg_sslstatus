@@ -50,3 +50,10 @@ All SSL information is exposed through a simple view:
 The `pid` field can be joined to either `pg_stat_activity` or
 `pg_stat_replication` to connect the information with further details
 about the connection.
+
+Limitations
+-----------
+There are of course a number of limitations :) Some to note are:
+
+* Cipher names are truncated at 64 characters (I've never seen one longer...)
+* Certificate DNs are truncated at 64 characters (this is certainly more common)
