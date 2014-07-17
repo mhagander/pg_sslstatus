@@ -162,7 +162,7 @@ static void
 sslstatus_shmem_exit(int code, Datum arg)
 {
 	/*
-	 * Only reset the pid, since that will make there record excluded by the SRF
+	 * Only reset the pid, since that will make the record excluded by the SRF
 	 * so there's no need to clear the rest.
 	 */
 	LWLockAcquire(sslstatus->lock, LW_EXCLUSIVE);
