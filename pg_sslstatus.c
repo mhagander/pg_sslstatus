@@ -14,7 +14,11 @@
 #include "storage/ipc.h"
 #include "catalog/pg_type.h"
 #include "utils/builtins.h"
+#if PG_VERSION_NUM >= 90300
 #include "access/htup_details.h"
+#else
+#include "mb/pg_wchar.h"
+#endif
 
 PG_MODULE_MAGIC;
 
