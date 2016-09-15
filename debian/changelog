@@ -1,0 +1,5 @@
+pgsslstatus (1.0-1heroku1) precise; urgency=medium
+
+  * Initial release
+
+ -- Greg Burek <gregburek@heroku.com>  Thu, 15 Sep 2016 01:27:24 +0000

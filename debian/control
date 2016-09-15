@@ -1,0 +1,72 @@
+Source: pgsslstatus
+Priority: extra
+Maintainer: Heroku Department of Data <dod@heroku.com>
+Uploaders: Greg Burek <gregburek@heroku.com>
+Build-Depends: debhelper (>= 9), postgresql-server-dev-all (>= 171~)
+Standards-Version: 3.9.6
+Section: database
+Homepage: https://github.com/heroku/pg_sslstatus
+Vcs-Git: https://github.com/heroku/pg_sslstatus.git
+Vcs-Browser: https://github.com/heroku/pg_sslstatus
+XS-Testsuite: autopkgtest
+
+Package: postgresql-9.1-pgsslstatus
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-9.1
+Description: PostgreSQL SSL Status
+ pg_sslstatus is a simple extension to PostgreSQL that allows an administrator
+ to view the SSL status of different connections. It shows whether SSL is in
+ force, the negotiated SSL parameters, and information about the (optional)
+ client certificate on the connection.
+
+Package: postgresql-9.2-pgsslstatus
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-9.2
+Description: PostgreSQL SSL Status
+ pg_sslstatus is a simple extension to PostgreSQL that allows an administrator
+ to view the SSL status of different connections. It shows whether SSL is in
+ force, the negotiated SSL parameters, and information about the (optional)
+ client certificate on the connection.
+
+Package: postgresql-9.3-pgsslstatus
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-9.3
+Description: PostgreSQL SSL Status
+ pg_sslstatus is a simple extension to PostgreSQL that allows an administrator
+ to view the SSL status of different connections. It shows whether SSL is in
+ force, the negotiated SSL parameters, and information about the (optional)
+ client certificate on the connection.
+
+Package: postgresql-9.4-pgsslstatus
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-9.4
+Description: PostgreSQL SSL Status
+ pg_sslstatus is a simple extension to PostgreSQL that allows an administrator
+ to view the SSL status of different connections. It shows whether SSL is in
+ force, the negotiated SSL parameters, and information about the (optional)
+ client certificate on the connection.
+
+Package: postgresql-9.5-pgsslstatus
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-9.5
+Description: PostgreSQL SSL Status
+ pg_sslstatus is a simple extension to PostgreSQL that allows an administrator
+ to view the SSL status of different connections. It shows whether SSL is in
+ force, the negotiated SSL parameters, and information about the (optional)
+ client certificate on the connection.
+
+Package: postgresql-9.6-pgsslstatus
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, postgresql-9.6
+Description: PostgreSQL SSL Status
+ pg_sslstatus is a simple extension to PostgreSQL that allows an administrator
+ to view the SSL status of different connections. It shows whether SSL is in
+ force, the negotiated SSL parameters, and information about the (optional)
+ client certificate on the connection.
+
