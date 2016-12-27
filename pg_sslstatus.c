@@ -72,8 +72,11 @@ _PG_init(void)
 	 * unsafe.
 	 */
 	RequestAddinShmemSpace(1000 * sizeof(SslInfoStruct));
+#if PG_VERSION_NUM >= 90600
+	RequestNamedLWLockTranche("pg_sslstatus", 1);
+#else
 	RequestAddinLWLocks(1);
-
+#endif
 	/*
 	 * Install hooks.
 	 */
@@ -108,7 +111,11 @@ pg_sslstatus_shmem_hook(void)
 	{
 		memset(sslstatus, 0, size);
 		sslstatus->size = size;
+#if PG_VERSION_NUM >= 90600
+		sslstatus->lock = &(GetNamedLWLockTranche("pg_sslstatus"))->lock;
+#else
 		sslstatus->lock = LWLockAssign();
+#endif
 	}
 
 	LWLockRelease(AddinShmemInitLock);
