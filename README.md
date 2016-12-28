@@ -1,6 +1,10 @@
 pg_sslstatus
 ============
 
+> **NOTE!** pg_sslstatus has been superseded by the built-in *pg_stat_ssl*
+> view as of PostgreSQL 9.5. It is only useful for earlier versions of
+> PostgreSQL!
+
 pg_sslstatus is a simple extension to PostgreSQL that allows an
 administrator to view the SSL status of different connections. It
 shows whether SSL is in force, the negotiated SSL parameters, and
