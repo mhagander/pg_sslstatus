@@ -1,0 +1,32 @@
+language: cpp
+sudo: required
+dist: trusty
+env:
+  matrix:
+    - DIST=xenial
+    - DIST=trusty
+before_install:
+  - sudo apt-get -y install wget software-properties-common
+  - sudo add-apt-repository -y "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main" && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+  - sudo apt-get update && sudo apt-get -y install postgresql-server-dev-all devscripts rsync build-essential dh-make libkrb5-dev
+  - echo '9.3\n9.4' > ~/.pg_supported_versions
+before_script:
+  - make clean
+script:
+  - sed -i "s:trusty:${DIST}:g" debian/changelog
+  - make
+before_deploy:
+  - make deb
+deploy:
+  provider: packagecloud
+  dist: ubuntu/$DIST
+  package_glob: build/*.deb
+  username: heroku
+  repository: dod
+  skip_cleanup: true
+  on:
+    branch: master
+  token:
+    secure: hAIKMLmHnxCeABp2JmjXMtR2QmlbvcNiZiOc0U7A3autmELCiRvGVciZBkyxVlIuAeP0uNvJwk81SUJw5mruZF+pBAJfXCc9+QIugi/IiRD6PXE4+Ui7XpNfYMQ149iH11lwJj2wzOJRoY/hlMMkovwjjStvyE5Qv/ozH2xO7VigB8MKO1/LO399AJgZB225k131jw9vWKHtZQemUJGlY13a4zBx6gSMfIpPGmsELQBWkv4s/4LL/DHXXU0RZrZpr3Iww+qW6hKJTLmVxmGCTn+r+FMFLdHhM1Ryx8FqujMtlh5yUU+TIvFWd2S8C37f9lLadcrLjt8W9DzA55CNaZWxpzAJxuOt3+NM+auLDkQkuvRlFG7CC/uPMghYlne2QqbK4lEaqbrNZE4fGasl4dmE7AOR6yOwni8+e+2YBSLh6H8hGRGhajW9mcnykI+J+GuPvqKRXnQ4qFxlMKsXyj59OVm4wUgd7HoVq4WzVsdL2VwWnxjw7SdyuVHD8hBBQ3xFjWp13X/481xQC/+XqUQM3PHTNFt7hyey0EsgjDCPCfQHzqOaZRj78KCsqQsoSKRft+0rPS42g5VOVaXHV960xm7oiBk0vNgq3AfVjmp8qYnBisazmzL/CQFDaWqxuW59O/mNtWW9ZgbzSIj8uRRnGWyNnjhd9rK8pip+AJY=
+notifications:
+  email: false

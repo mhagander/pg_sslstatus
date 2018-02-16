@@ -1,0 +1,2 @@
+version=3
+https://github.com/heroku/pg_sslstatus/releases /heroku/pg_sslstatus/archive/v(.*).tar.gz
