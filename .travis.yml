@@ -3,7 +3,7 @@ sudo: required
 dist: trusty
 env:
   matrix:
-    - DIST=precise
+    - DIST=xenial
     - DIST=trusty
 before_install:
   - sudo apt-get -y install wget software-properties-common
@@ -13,6 +13,7 @@ before_install:
 before_script:
   - make clean
 script:
+  - sed -i "s:trusty:${DIST}:g" debian/changelog
   - make
 before_deploy:
   - make deb

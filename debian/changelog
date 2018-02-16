@@ -1,4 +1,4 @@
-pgsslstatus (1.0-1heroku1) precise; urgency=medium
+pgsslstatus (1.0-1heroku1) trusty; urgency=medium
 
   * Initial release
 
