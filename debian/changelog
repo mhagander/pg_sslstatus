@@ -1,3 +1,9 @@
+pgsslstatus (1.0-1heroku2) trusty; urgency=medium
+
+  * Release for package autobuilding
+
+ -- Greg Burek <gburek@salesforce.com>  Fri, 16 Feb 2018 01:05:56 +0000
+
 pgsslstatus (1.0-1heroku1) trusty; urgency=medium
 
   * Initial release
